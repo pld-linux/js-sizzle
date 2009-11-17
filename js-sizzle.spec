@@ -8,6 +8,7 @@ Group:		Applications/WWW
 Source0:	http://download.github.com/jeresig-%{name}-%{rev}.zip
 # Source0-md5:	73b356e1769768e854d8202d4410959d
 URL:		http://www.sizzlejs.com/
+BuildRequires:	unzip
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
