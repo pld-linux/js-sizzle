@@ -1,12 +1,11 @@
-%define		rev	4251a83f9cdc9edc4e5814691f0071b51b766e4d
 Summary:	A pure-JavaScript CSS selector engine
-Name:		sizzle
+Name:		js-sizzle
 Version:	1.0
-Release:	0.1
-License:	MIT, BSD, and GPL
+Release:	0.2
+License:	MIT, BSD, and GPL v2
 Group:		Applications/WWW
-Source0:	http://download.github.com/jeresig-%{name}-%{rev}.zip
-# Source0-md5:	73b356e1769768e854d8202d4410959d
+Source0:	http://download.github.com/jeresig-sizzle-852d3d0.zip
+# Source0-md5:	8524ff0dcd1aefdbd653b16e3636dc5c
 URL:		http://www.sizzlejs.com/
 BuildRequires:	unzip
 BuildArch:	noarch
@@ -19,20 +18,18 @@ A pure-JavaScript CSS selector engine designed to be easily dropped in
 to a host library.
 
 %prep
-%setup -q -n jeresig-%{name}-%{rev}
-
-%build
-%{__make} jquery
+%setup -qc
+mv jeresig-sizzle-*/* .
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_appdir}
-cp -a sizzle.js jquery-sizzle.js $RPM_BUILD_ROOT%{_appdir}
+cp -a sizzle.js $RPM_BUILD_ROOT%{_appdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE test/index.html
+%doc LICENSE README
 %{_appdir}
